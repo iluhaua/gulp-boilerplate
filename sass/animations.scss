@@ -1,0 +1,85 @@
+
+
+/* --------------------
+    Animations
+    ------------------- */  
+
+.animate-t {
+    transition: opacity 1.3s ease-out, letter-spacing 1.3s ease-out;
+    letter-spacing: 20px;
+    opacity: 0;
+
+    .loaded &, .start & {
+        opacity: 1;
+        letter-spacing: 0;
+    }
+}     
+
+.animate-slide {
+    opacity: 0;   
+    transform: translateY(20px);
+
+    .loaded &, .start & {
+        @include animation(animateSlide, 1.2s, $easing);
+    }
+}
+
+.animate-fade {
+    // @include transition(opacity, 0.8s, linear);
+    opacity: 0;
+
+    .loaded &, .start & {
+        @include animation(animateFade, 1.5s, ease-out);
+    }
+}
+
+@keyframes animateSlide {
+    0% {
+        transform: translateY(20px);
+        -ms-transform: translateY(20px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0px);
+        -ms-transform: translateY(0px);
+        opacity: 1;
+    }
+}
+
+@keyframes animateFade {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes animateSlide {
+    0% {
+        transform: translateY(20px);
+        -ms-transform: translateY(20px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0px);
+        -ms-transform: translateY(0px);
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes animateFade {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+$textA: 15px;
+

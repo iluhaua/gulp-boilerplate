@@ -1,0 +1,10 @@
+node_modules/
+
+.sass-cache/
+
+.vscode/
+
+dist/
+
+css/main.css.map
+css/main.css
