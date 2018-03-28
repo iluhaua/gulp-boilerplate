@@ -1,56 +1,23 @@
 <!DOCTYPE html>
 
-<html lang="ru" class="no-js">
-	<head>
-		<meta charset="utf-8" />
-		<title>Boring Title</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimal-ui" /> 
-		<meta name="format-detection" content="telephone=no">
-		<meta name="format-detection" content="address=no">
-		<link rel="icon" type="image/vnd.microsoft.icon" href="favicon.ico" />
-		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico"  />
-		<style>
-			#loader .loader-anim{-webkit-filter:url(#goo);filter:url(#goo);position:relative;width:100%;height:100px}#loader .loader-anim::after{content:'';display:block;width:50px;height:50px;border-radius:50%;background:#ac66aa;margin:0 auto;position:absolute;top:25px;left:0;right:0;-webkit-animation:scale 2.5s ease-in-out infinite;animation:scale 2.5s ease-in-out infinite}#loader .loader-anim .anim-inner{position:absolute;width:30px;height:30px;border-radius:50%;background:#ac66aa;top:35px;left:0;right:0;margin-left:auto;margin-right:auto;-webkit-animation:move 2.5s ease-in-out infinite alternate;animation:move 2.5s ease-in-out infinite alternate}#loader .loader-anim .anim-inner::after,#loader .loader-anim .anim-inner::before{content:'';display:block;position:absolute;width:30px;height:30px;border-radius:50%;background:#ac66aa}#loader .loader-anim .anim-inner::before{left:-75px}#loader .loader-anim .anim-inner::after{left:75px}@-webkit-keyframes move{0%{-webkit-transform:translateX(-150px);transform:translateX(-150px)}100%{-webkit-transform:translateX(150px);transform:translateX(150px)}}@keyframes move{0%{-webkit-transform:translateX(-150px);transform:translateX(-150px)}100%{-webkit-transform:translateX(150px);transform:translateX(150px)}}@-webkit-keyframes scale{10%,90%{-webkit-transform:scale(1);transform:scale(1)}50%{-webkit-transform:scale(1.25);transform:scale(1.25)}}@keyframes scale{10%,90%{-webkit-transform:scale(1);transform:scale(1)}50%{-webkit-transform:scale(1.25);transform:scale(1.25)}}@-webkit-keyframes fadeOut{0%{opacity:1}100%{opacity:0}}@keyframes fadeOut{0%{opacity:1}100%{opacity:0}}#loader{position:fixed;left:0;top:0;right:0;bottom:0;background:#f2f5f9;z-index:100500}#loader .spinner-wrapper{width:100%;height:100px;position:absolute;top:50%;left:0;right:0;opacity:1;background:0 0;margin-left:auto;margin-right:auto;transform:translate3d(0,-50%,0)}#loader svg{position:absolute;z-index:-100;pointer-events:none}#loader.finished{animation:.4s fadeOut forwards}#loader.finished.up{visibility:hidden;display:none}
-		</style>
-		
-		<link type="text/css" rel="stylesheet" href="css/main.css" />
+<html lang="en" class="no-js">
 
-		<!-- async css loading -->
-		<!-- <link rel="stylesheet" href="css/slick.css" media="none" onload="if(media!='all')media='all'"><noscript><link rel="stylesheet" href="css/slick.css"></noscript> -->
-	</head>
+	@@include('./partials/head.htm',{"title": "Boring Title"})
 	
 	<body>
-		<div id="loader">
-			<div class="spinner-wrapper">
-				<div class="loader-anim">
-					<div class="anim-inner"></div>
-				</div>
-				<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
-					<defs>
-						<filter id="goo">
-						<fegaussianblur in="SourceGraphic" stddeviation="15" result="blur"></fegaussianblur>
-						<fecolormatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 26 -7" result="goo"></fecolormatrix>
-						<feblend in="SourceGraphic" in2="goo"></feblend>
-						</filter>
-					</defs>
-				</svg>
-			</div>
-		</div>
+		@@include('./partials/preloader.htm')
 		
 		<!-- WordPress-compatible menu structure -->
 		<div class="menu-container">
 			<ul class="menu">
 				<li class="menu-item current-menu-item current_page_item menu-item-home">
-					<a href="http://example.com/">Home</a>
+					<a href="index.htm">Home</a>
 				</li>
 				<li class="menu-item">
-					<a href="http://example.com/demos/">Demos</a>
+					<a href="about.htm">About</a>
 				</li>
 				<li class="menu-item">
-					<a href="http://example.com/downloads/">Downloads</a>
-				</li>
-				<li class="menu-item">
-					<a href="http://example.com/docs/">Documentation</a>
+					<a href="contacts.htm">Contacts</a>
 				</li>
 			</ul>
 		</div>
@@ -61,24 +28,6 @@
 		
 		
 		<script src="./js/scripts.js" defer></script>
-
-		<!-- Preloader script -->
-		<script>
-			window.addEventListener("load", function(event) {
-				var preloader = document.getElementById("loader");
-				preloader.classList.add("finished");
-				var hidePreloader = function(event) {
-					preloader.classList.add("up");
-					preloader.removeEventListener("animationend",hidePreloader);
-					preloader.removeEventListener("oAnimationEnd",hidePreloader);
-					preloader.removeEventListener("webkitAnimationEnd",hidePreloader);
-				};
-				preloader.addEventListener("animationend",hidePreloader);
-				preloader.addEventListener("oAnimationEnd",hidePreloader);
-				preloader.addEventListener("webkitAnimationEnd",hidePreloader);
-
-			});
-		</script>
 
 	</body>
 </html>

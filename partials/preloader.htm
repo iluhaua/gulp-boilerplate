@@ -1,0 +1,33 @@
+<div id="loader">
+    <div class="spinner-wrapper">
+        <div class="loader-anim">
+            <div class="anim-inner"></div>
+        </div>
+        <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+            <defs>
+                <filter id="goo">
+                <fegaussianblur in="SourceGraphic" stddeviation="15" result="blur"></fegaussianblur>
+                <fecolormatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 26 -7" result="goo"></fecolormatrix>
+                <feblend in="SourceGraphic" in2="goo"></feblend>
+                </filter>
+            </defs>
+        </svg>
+    </div>
+</div>
+<!-- Preloader script -->
+<script>
+    window.addEventListener("load", function(event) {
+        var preloader = document.getElementById("loader");
+        preloader.classList.add("finished");
+        var hidePreloader = function(event) {
+            preloader.classList.add("up");
+            preloader.removeEventListener("animationend",hidePreloader);
+            preloader.removeEventListener("oAnimationEnd",hidePreloader);
+            preloader.removeEventListener("webkitAnimationEnd",hidePreloader);
+        };
+        preloader.addEventListener("animationend",hidePreloader);
+        preloader.addEventListener("oAnimationEnd",hidePreloader);
+        preloader.addEventListener("webkitAnimationEnd",hidePreloader);
+
+    });
+</script>

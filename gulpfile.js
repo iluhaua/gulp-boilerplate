@@ -14,6 +14,7 @@ const beeper = require('beeper');
 const imagemin = require('gulp-imagemin');
 const gulpPngquant = require('gulp-pngquant');
 const htmlmin = require('gulp-htmlmin');
+const fileinclude = require('gulp-file-include');
 
 gulp.task('sass', function () {
  return gulp.src('./sass/main.scss')
@@ -34,6 +35,11 @@ function errorHandler(error) {
 function html() {
   return gulp.src(['*.html','*.htm'])
       //.pipe(embedlr())
+      .pipe(fileinclude({
+        prefix: '@@',
+        basepath: '@file',
+        indent: true
+      }))
       .pipe(htmlmin({collapseWhitespace: true}))
       .pipe(gulp.dest('dist/'));
       //.pipe(refresh(server));

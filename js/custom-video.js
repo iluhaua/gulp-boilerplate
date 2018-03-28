@@ -1,4 +1,4 @@
-// TODO: create object and pass parameters 
+// TODO: declare object and pass selectors as parameters 
 
 // VIDEO
 let video = document.querySelector(".mission-video video");
